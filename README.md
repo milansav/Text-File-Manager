@@ -1,2 +1,2 @@
 # Text-File-Manager
-Small &amp; Simple library for easy opening of .txt file, reading specific lines and writing
+Small &amp; Simple library to quickly opening .txt files, read specific lines and write. </br>
