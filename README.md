@@ -1,5 +1,5 @@
 # Text-File-Manager
-Small &amp; Simple library to quickly opening .txt files, read specific lines and write. </br>
+Small &amp; Simple library to quickly opening .txt files, read specific lines and write into them. </br>
 </br>
 # Documentation
 <b>bool load(string path);</b> //Loads file to read from, returns true if loaded successfully, false otherwise</br></br>
