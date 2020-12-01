@@ -33,6 +33,9 @@ bool load(std::string arg)
 
 std::string read(int lineNum)
 {
+
+	if(!ifile.is_open()) return "";
+
 	if(lineNum > lines.size()) std::cout << "Line number is out of bounds!" << std::endl;
 
 	for (int i = 0; i < lines.size(); i++)
