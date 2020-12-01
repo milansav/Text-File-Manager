@@ -36,4 +36,4 @@ Small &amp; Simple library to quickly opening .txt files, read specific lines an
 <b>Returns:</b> returns true if file was closed successfully, false otherwise.</br></br>
 
 # To-Do
-- Add null file protection when reading
+- Nothing yet
