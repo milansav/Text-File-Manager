@@ -9,6 +9,6 @@ std::string read(int lineNum);
 int getLength();
 bool createFile(std::string arg);
 bool write(std::string arg);
-bool closeFile();
+bool closeFile(char c);
 
 #endif

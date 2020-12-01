@@ -1,23 +1,21 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <list>
+#include <vector>
 #include "File_Manager.h"
 
-using namespace std;
 
-
-ifstream ifile;
-ofstream ofile;
-list<string> lines;
+std::ifstream ifile;
+std::ofstream ofile;
+std::vector<std::string> lines;
 int length = 0;
 
-bool load(string arg) 
+bool load(std::string arg) 
 {
 	ifile.open(arg);
 	if (ifile.is_open()) 
 	{
-		string temp_line;
+		std::string temp_line;
 		while (getline(ifile, temp_line)) 
 		{
 			length++;
@@ -33,21 +31,13 @@ bool load(string arg)
 	ifile.close();
 }
 
-string read(int lineNum)
+std::string read(int lineNum)
 {
+	if(lineNum > lines.size()) std::cout << "Line number is out of bounds!" << std::endl;
 
-	list<string>::iterator it;
-	int num = 0;
-
-	for (it = lines.begin(); it != lines.end(); ++it)
+	for (int i = 0; i < lines.size(); i++)
 	{
-
-		if (num == lineNum)
-		{
-			return it->c_str();
-		}
-
-		num++;
+		if(i == lineNum) return lines[i];
 	}
 
 	return "";
@@ -58,30 +48,33 @@ int getLength()
 	return length;
 }
 
-bool createFile(string arg)
+bool createFile(std::string arg)
 {
-	ofile = ofstream(arg);
+	ofile = std::ofstream(arg);
 
-	if (ofile.is_open()) 
-	{
-		return true;
-	}
+	if (ofile.is_open()) return true;
 
 	return false;
 }
 
-bool write(string arg) 
+bool write(std::string arg) 
 {
 	ofile << arg;
 	return true;
 }
 
-bool closeFile() 
+bool closeFile(char c) 
 {
-	ofile.close();
-	if (ofile.is_open()) 
+	if(c == 'i')
 	{
-		return false;
-	}
+		ifile.close();
+		if(ifile.is_open()) return false;
 		return true;
+	}
+	if(c == 'o')
+	{
+		ofile.close();
+		if(ofile.is_open()) return false;
+		return true;
+	}
 }
